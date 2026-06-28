@@ -1,0 +1,11 @@
+{
+  "name": "do-my-mcpe-files",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A locally hosted app website to build com.mojang folder for Minecraft Bedrock Edition on Android.",
+  "main": "server.mjs",
+  "dependencies": {
+    "adm-zip": "^0.5.17",
+    "express": "^5.2.1"
+  }
+}

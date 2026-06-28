@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quilantia Import Builder | Storage Guide for Minecraft Bedrock/MCPE Files</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+
+<body>
+    <header>
+        <div id="header-left">
+            <img id="head-icon" src="assets/favicon.png" alt="icon">
+            <h1 id="head-title">QIB Guide</h1>
+        </div>
+        <div class="menu-back-btn">
+            <a href="index.html" class="menu-back-panel"><img class="menu-back-icon" src="assets/arrow_back.svg" alt="back icon"></a>
+        </div>
+    </header>
+
+    <main>
+        <br><br>
+        <div class="table-of-contents">
+            <h4>Table of Contents</h4>
+            <ol>
+                <li><a href="#what-are-minecraft-files">What are Minecraft Files?</a></li>
+                <li><a href="#how-to-use-import-builder-properly">How to Use Import Builder Properly.</a></li>
+                <li><a href="#unknown-error-occurred">Unknown/undefined error occurred.</a></li>
+                <li><a href="#minecraft-file-storage">Minecraft File Storage Location</a></li>
+                <li><a href="#minecraft-bedrock-screenshots">Minecraft Bedrock Screenshots?</a></li>
+                <li><a href="#exporting-minecraft-files">Exporting Minecraft Files</a></li>
+                <li><a href="#third-party-apps-minecraft">Third Party Apps with Minecraft Files</a></li>
+                <li><a href="#manual-minecraft-file-management">Manual Minecraft File Management</a></li>
+                <li><a href="#references">References</a></li>
+            </ol>
+        </div>
+
+        <br><br>
+
+        <div class="text-container">
+            <a class="aheader" href="#what-are-minecraft-files"><h2 id="what-are-minecraft-files" class="info-text">What are Minecraft Files?</h2></a>
+            <p class="info-text">Minecraft Files are used for Minecraft's data archives that can be distributed and imported in Minecraft to make use of its contents in the game. There are official file types for Minecraft Bedrock that were documented by the game updates, and Minecraft creators and developers over time. Please refer to <a href="https://wiki.bedrock.dev/documentation/file-types">Minecraft Bedrock File Types</a> for more information about this.</p>
+            <br><br>
+            <a class="aheader" href="#how-to-use-import-builder-properly"><h2 id="how-to-use-import-builder-properly" class="info-text">How to Use Import Builder Properly.</h2></a>
+            <p class="info-text warning-info">Prerequisite: Using the Import Builder requires at least basic knowledge of how file managers and Minecraft Files work, and using a Terminal (Termux).</p>
+            <p class="info-text">To use the Import Builder, keep in mind that the files uploaded will be stored in your device and will create temporary copies to create the build properly. NodeJS also has a memory size limit for large files or stacked files depending on your device specifications. The memory limit is displayed in the terminal when starting the app and sets to 70% of your device's RAM if available.</p>
+            <p class="info-text"><a class="auonly" href="index.html#accepted-files">Accepted file formats</a> mentioned at the main menu made the Import Builder maximize its usage. After uploading all the files, you are good to go with the Import button and make sure your decision for clearing the App's data is also clear.</p>
+            <ul class="info-text">
+                <li>Uploaded files are being processed by upload order.</li>
+                <li>If a file encounters an error. It will not be counted as a processed file.</li>
+                <li>When all files are processed but fail to transfer. The Import button should display as <b>Continue Import</b> to continue the build transfer.</li>
+                <li>If <b>Continue Import</b> does not appear. Upload the same file again since the file's content is already assembled and would not impact your storage.</li>
+            </ul>
+            <p class="info-text">Before performing the import. Make sure that you have read the <a href="index.html#clear-app-data">App Clear Data</a> method for the operation.</p>
+            <br><br>
+            <a class="aheader" href="#unknown-error-occurred"><h2 id="unknown-error-occurred" class="info-text">Unknown/undefined error occurred.</h2></a>
+            <p class="info-text">This app is not always consistent, but it is guaranteed that issues may occur. Some common issues include:</p>
+            <ul class="info-text">
+                <li>Upload Error: Check if the uploaded file is valid.</li>
+                <li>Upload Error: Check the terminal with <code>bash checkbuild.sh</code> if directories are being created. Try again if the error is caused by missing directories.</li>
+                <li>Transfer Error: Check if commands used inside the scripts are not available to install them first.</li>
+                <li>Transfer Error - <code>rish</code> is not available or is disconnected from device: Check Shizuku setup if something went wrong.</li>
+                <li>Transfer Error: Storage access might be denied for Termux or by Android itself.</li>
+                <li>Transfer/Export Error - Custom Android manifest package name does not exist: Check the spelling and should not include <code>com.mojang</code> at the end.</li>
+                <li>Transfer/Export Error - Cannot compress archive: Try again.</li>
+            </ul>
+            <p class="info-text">If something happens that is not listed here. You can always check the terminal to find if it is a client-side problem or an actual bug.</p>
+            <br><br>
+            <a class="aheader" href="#minecraft-file-storage"><h2 id="minecraft-file-storage" class="info-text">Minecraft File Storage Location</h2></a>
+            <p class="info-text">Setting up your Minecraft File Storage Location is significant when managing Minecraft backup data.. Always practice setting the Minecraft File Storage Location to "External" from Start Menu by going to <b>Settings</b> > <b>Storage</b> > <b>File Storage Location</b>.</p>
+            <img class="info-text" src="assets/minecraft-file-storage.png" alt="Minecraft File Storage Location in Settings">
+            <br><br>
+            <a class="aheader" href="#minecraft-bedrock-screenshots"><h2 id="minecraft-bedrock-screenshots" class="info-text">Minecraft Bedrock Screenshots?</h2></a>
+            <p class="info-text">The in-game screenshots feature was added in <a href="https://feedback.minecraft.net/hc/en-us/articles/30220110283533-Minecraft-1-21-30-Bedrock">Minecraft Bedrock v1.21.30</a> and the screenshots are stored locally at <code>com.mojang/Screenshots/</code> directory where its subdirectories are grouped associated with the Account IDs to manage their own galleries. Archiving the <code>Screenshots/</code>'s contents with <code>.mcshots</code> file extension can be used to restore those local screenshots in Minecraft using the <b>Import Builder</b> to be visible from accounts' gallery.</p>
+            <img class="info-text" src="assets/screenshot_gallery.png" alt="Screenshot Gallery">
+            <img class="info-text" src="assets/archiving_mcshots.png" alt="ZArchiver compress to .mcshots file">
+            <br>
+            <p class="info-text">It is weird that in-game screenshots are limited to 100 captures only when they are not saved on some cloud server. Not saving them would lose all in-game screenshots taken not shared to the account's Featured Gallery which only showcases 5 captures.</p>
+            <img class="info-text" src="assets/showcase_gallery.png" alt="Showcase Gallery">
+            <p class="info-text">For learning how to use in-game screenshots in Minecraft Bedrock, refer to <a href="https://aka.ms/MCBedrockScreenshots">Minecraft Bedrock Screenshots</a>.</p>
+            <br><br>
+            <a class="aheader" href="#exporting-minecraft-files"><h2 id="exporting-minecraft-files" class="info-text">Exporting Minecraft Files</h2></a>
+            <p class="info-text">When it comes to exporting Minecraft files, you are essentially making a backup of your Minecraft data. If your Minecraft File Storage Location is already set to "External" then you can create a backup of your Minecraft data to the <a href="export.html"><b>QIB - Export</b></a> section.</p>
+            <br><br>
+            <a class="aheader" href="#third-party-apps-minecraft"><h2 id="third-party-apps-minecraft" class="info-text">Third Party Apps with Minecraft Files</h2></a>
+            <p class="info-text">Knowing that this can happen to any third-party app that utilizes Minecraft is one of the reasons why using them is risky.</p>
+            <p class="info-text">To retrieve Minecraft data from a Third Party App assuming that it contains the entire <code>com.mojang</code> subdirectory, as the target directory:</p>
+            <ol class="info-text">
+                <li>Identify the app's <u>Android manifest package name</u> with known apps such as <a href="https://play.google.com/store/apps/details?id=sk.styk.martin.apkanalyzer">APK Analyzer</a> on Play Store.</li>
+                <li>Use <b>FV File Manager + Shizuku</b> to bridge with <code>Android/data/</code> subdirectories.</li>
+                <li>Find the matching package name of the app.</li>
+                <li>Locate its <code>com.mojang</code> directory to copy the path starting from the package name. (<code>com.mojang</code> exclusive)</li>
+                <li>Paste it to the custom filepath when importing or exporting.</li>
+            </ol>
+            <p class="info-text">After finishing an operation, do not forget to store the copied filepath somewhere for practicality.</p>
+            <p class="info-text warning-info">Note that using this feature is risky and may damage your device if you are not careful.</p>
+            <br><br>
+            <a class="aheader" href="#manual-minecraft-file-management"><h2 id="manual-minecraft-file-management" class="info-text">Manual Minecraft File Management</h2></a>
+            <p class="info-text">If you are left with no choice but to manage your files manually. Start with using advanced file managers for Android such as <a href="https://play.google.com/store/apps/details?id=ru.zdevs.zarchiver">ZArchiver</a>, <a href="https://play.google.com/store/apps/details?id=com.folderv.file">FV File Explorer</a>, or <a href="https://mt-manager.en.uptodown.com/android">MT Manager (Risky)</a> and pair them with <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api">Shizuku</a> to gain access from its ADB permissions to bridge with the <code>Android/data/</code> subdirectories.</p>
+            <br><br>
+            <a class="aheader" href="#references"><h2 id="references" class="info-text">References</h2></a>
+            <ul class="info-text">
+                <li><a href="https://help.minecraft.net/hc/en-us/articles/4414144725389-How-Minecraft-Stores-World-Files-on-Your-Android-Device">How Minecraft Stores World Files on Your Android Device</a></li>
+                <li><a href="https://feedback.minecraft.net/hc/en-us/articles/4414284658701-Minecraft-Caves-Cliffs-Part-II-1-18-0-Bedrock">Minecraft - Caves & Cliffs: Part II - 1.18.0 (Bedrock)</a></li>
+                <li><a href="https://feedback.minecraft.net/hc/en-us/articles/30220110283533-Minecraft-1-21-30-Bedrock">Minecraft - 1.21.30 (Bedrock)</a></li>
+                <li><a href="https://developer.android.com/about/versions/11/privacy/storage">Storage updates in Android 11</a></li>
+                <li><a href="https://wiki.bedrock.dev/documentation/file-types">Bedrock Wiki: File Types</a></li>
+                <li><a href="https://nodejs.org/docs/latest/api/cli.html#--max-old-space-sizesize-in-mib">Node.js documentation: Command-line options</a></li>
+                <li><a href="https://github.com/RikkaApps/Shizuku/blob/master/README.md">Shizuku from GitHub</a></li>
+                <li><a href="https://shizuku.rikka.app/">Shizuku Official Website</a></li>
+                <li><a href="https://folderv.com/2023/11/24/access-Android-data-and-Android-obb-on-Android-14/">FV File Explorer: Access /Android/data and /Android/obb on Android 14+ without root</a></li>
+            </ul>
+            <br><br>
+        </div>
+    </main>
+
+    <footer>
+        <h3>Quilantia Import Builder | Made by EditorOne XI</h3>
+        <p class="note">MINECRAFT IS A TRADEMARK OF MOJANG STUDIOS AND MICROSOFT CORPORATION.</p>
+        <p class="note">NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.</p>
+    </footer>
+</body>
+</html>

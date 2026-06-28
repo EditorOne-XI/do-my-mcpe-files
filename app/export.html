@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quilantia Import Builder | Export Minecraft Files</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+
+<body>
+    <header>
+        <div id="header-left">
+            <img id="head-icon" src="assets/favicon.png" alt="icon">
+            <h1 id="head-title">QIB - Export</h1>
+        </div>
+        <div class="menu-back-btn">
+            <a href="index.html" class="menu-back-panel"><img class="menu-back-icon" src="assets/arrow_back.svg" alt="back icon"></a>
+        </div>
+    </header>
+
+    <main>
+        <br><br>
+        <div class="container">
+            <div class="form-group">
+                <label for="target-app-export">Target Source</label>
+                <select id="target-app-export">
+                    <option value="MINECRAFT_NATIVE">Minecraft (Native)</option>
+                    <option value="CUSTOM">Custom filepath from Android/data/</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="custom-path-container-export" style="display: none;">
+                <label for="custom-path-export">Android/data/ Subfolder Path. <a href="guide.html#third-party-apps-minecraft">Help?</a></label>
+                <input type="text" id="custom-path-export" placeholder="e.g., com.mojang.minecraftpe/files/games/">
+                <p class="custom-path-warn">Warning: Use at your own risk.</p>
+            </div>
+
+            <button class="export-btn" id="export-btn"></button>
+        </div>
+
+        <br><hr><br><br>
+
+        <div class="text-container">
+            <h2 class="info-text">Exporting Minecraft Files</h2>
+            <p class="info-text">This feature was added to easily export all of your Minecraft data, essentially creating a backup of it before updating or reinstalling the game, as both actions can cause issues. Updating the game might cause issues or even corrupt your worlds when they are loaded, reinstalling the game may result in the loss of all your data because of changes to how Minecraft stores files after <a href="https://developer.android.com/about/versions/11/privacy/storage">Android 11 (API level 30)</a> enforced the Scoped Storage feature which Minecraft later adopted in the <a href="https://feedback.minecraft.net/hc/en-us/articles/4414284658701-Minecraft-Caves-Cliffs-Part-II-1-18-0-Bedrock">Caves and Cliffs: Part II</a> update.</p>
+            <ul class="info-text">
+                <li>Exported files will be stored in the <code>Download</code> directory.</li>
+                <li>The export will be canceled if the <code>com.mojang</code> directory does not exist.</li>
+                <li>Exporting is possible as long as the app contains a <code>com.mojang</code> directory, even if an error occurs.  directory even when an error occurs.</li>
+                <li>The exported archive file has a specific signature within. Modifying it will cause it to be rejected by the Import Builder.</li>
+            </ul>
+            <br>
+        </div>
+    </main>
+
+    <footer>
+        <h3>Quilantia Import Builder | Made by EditorOne XI</h3>
+        <p class="note">MINECRAFT IS A TRADEMARK OF MOJANG STUDIOS AND MICROSOFT CORPORATION.</p>
+        <p class="note">NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.</p>
+    </footer>
+    <script src="exportapp.js" defer></script>
+</body>
+</html>

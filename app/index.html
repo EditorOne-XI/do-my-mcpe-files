@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quilantia Import Builder | Import Files</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+
+<body>
+    <header>
+        <div id="header-left">
+            <img id="head-icon" src="assets/favicon.png" alt="icon">
+            <h1 id="head-title">Quilantia Import Builder</h1>
+        </div>
+        <button id="menu-btn" type="button" aria-expanded="false">
+            <img id="menu-icon" src="assets/menu_icon.svg" alt="menu icon">
+        </button>
+    </header>
+
+    <div id="menu-overlay" class="menu-items">
+        <nav>
+            <h1 class="items-headers">Sections</h1>
+            <ul>
+                <li><span><img src="assets/info.svg" alt="Guide"><a href="guide.html">QIB Guide</a></span></li>
+                <li><span><img src="assets/archive.svg" alt="Export"><a href="export.html">QIB - Export</a></span></li>
+            </ul>
+            <h1 class="items-headers">My Socials</h1>
+            <ul>
+                <li><span><img src="assets/github-brands-solid-full.svg" alt="GitHub"><a href="https://github.com/EditorOne-XI">GitHub</a></span></li>
+                <li><span><img src="assets/youtube-brands-solid-full.svg" alt="YouTube"><a href="https://youtube.com/@EditorOneXI">YouTube</a></span></li>
+                <li><span><img src="assets/reddit-alien-brands-solid-full.svg" alt="Reddit"><a href="https://www.reddit.com/u/EditorOne5312">Reddit</a></span></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <div id="anim-board"><div id="gear-container">
+            <img class="gear gear1" src="assets/gear_big.png" alt="gear">
+            <img class="gear gear2" src="assets/gear_big.png" alt="gear">
+            <img class="gear gear3" src="assets/gear_big.png" alt="gear">
+            <div id="quote"><p id="quote-text"></p></div>
+        </div></div>
+
+        <div class="container">
+            <div class="form-group">
+                <label for="target-app">Target Destination</label>
+                <select id="target-app">
+                    <option value="MINECRAFT_NATIVE">Minecraft (Native)</option>
+                    <option value="STORAGE">Save to Storage</option>
+                    <option value="CUSTOM">Custom filepath from Android/data/</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="custom-path-container" style="display: none;">
+                <label for="custom-path">Android/data/ Subdirectory Path. <a href="#third-party-apps">Help?</a></label>
+                <input type="text" id="custom-path" placeholder="e.g., com.mojang.minecraftpe/files/games/">
+                <p class="custom-path-warn">Warning: Use at your own risk.</p>
+            </div>
+
+            <div class="form-group" id="clear-app-data-panel">
+                <label class="clear-app-data-inline" for="clear-app-data-cb"><input type="checkbox" id="clear-app-data-cb" checked>Clear App Data. <a href="#clear-app-data">(Recommended)</a></label>
+            </div>
+
+            <div class="form-group" id="drop-panel">
+                <label class="text-inline">Select Pack Files. <label><a href="#accepted-files">Accepted Files</a>.</label></label>
+                <div class="drop-zone" id="drop-zone">
+                    <img class="drop-zone-icon" src="assets/upload_icon.svg" alt="upload">
+                    <div class="drop-zone-text" id="drop-zone-text"></div>
+                    <input type="file" id="file-input" accept="application/octet-stream,application/zip,application/x-zip-compressed" multiple>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Uploaded Pack/s List</label>
+                <div class="files-container">
+                    <ul class="files-list" id="files-list"></ul>
+                </div>
+            </div>
+
+            <button class="import-btn" id="import-btn" disabled></button>
+        </div>
+
+        <br><hr><br><br>
+
+        <div class="text-container">
+            <h2 class="info-text">What is an Import Builder?</h2>
+            <p class="info-text">An Import Builder in the context of Minecraft is a method of importing Minecraft packs and files in a single instance when restarting your setup in Minecraft.</p>
+            <p class="info-text">By restarting, your Minecraft files should be backed up first or Minecraft is freshly installed, otherwise <a href="#clear-app-data" class="auonly">you will lose all of your data</a>. If your File Storage in Minecraft is set to "Application" then there is no other way to back up your Minecraft files unless you have a desktop computer to retrieve your Minecraft files from the system's app data. You can refer to <a href="https://help.minecraft.net/hc/en-us/articles/4414144725389-How-Minecraft-Stores-World-Files-on-Your-Android-Device">Minecraft File Storage Location</a>.</p>
+            <br><br>
+            <a class="aheader" href="#accepted-files"><h2 id="accepted-files" class="info-text">Accepted Files to Import</h2></a>
+            <p class="info-text">Most common Minecraft files like <code>.mcpack</code>, <code>.mcaddon</code>, <code>.mcworld</code>, and <code>.mctemplate</code> are completely valid, but there are other Minecraft files supported by this import builder:</p>
+            <ul class="info-text">
+                <li><code>.zip</code> - Uses the mcpack/mcaddon reading function, some creators provide ZIP files as an alternative.</li>
+                <li><a class="auonly" href="guide.html#minecraft-bedrock-screenshots"><code>.mcshots</code></a> - Used for importing Minecraft screenshots with valid format.</li>
+                <li><code>options.txt</code> - Used to allow players to keep their Minecraft settings.</li>
+                <li><code>com.mojang.zip</code> - An entire backup file made by either this Import Builder via <b>Save to Storage</b> or <b>QIB - Export</b> to restore the data into the game.</li>
+            </ul>
+            <br><br>
+            <a class="aheader" href="#clear-app-data"><h2 id="clear-app-data" class="info-text">Why does it need to clear the app's data?</h2></a>
+            <p class="info-text">Most Android applications do not allow other apps to modify their app files for security reasons and they use the "ownership" method by having a signature to every file or directory the app created to their <code>Android/data/</code> subdirectories. Shizuku interacts with the system through its daemon to grant other apps permission to perform actions that would normally require root. Clearing the app's data is the only solution to erase all files with or without a signature created by the app.</p>
+            <p class="info-text">This web-based app was tested on an Android 14 device to observe the results of modifying unmodified <code>Android/data/</code> subdirectories. Android 11 to Android 13 may not have issues with this and should uncheck the Clear App Data checkbox.</p>
+            <p class="info-text">If the app is not opened yet and/or has already cleared its data then unchecking the checkbox is fine.</p>
+            <p class="info-text">Minecraft Bedrock v1.17 and below should use <b>Save to Storage</b> instead because the data files are usually exposed in <code>games/</code> directory if your <a class="auonly" href="guide.html#minecraft-file-storage">Minecraft File Storage Location</a> is set to "External". This change was introduced in the <a href="https://feedback.minecraft.net/hc/en-us/articles/4414284658701-Minecraft-Caves-Cliffs-Part-II-1-18-0-Bedrock">Caves and Cliffs: Part II</a> update.</p>
+            <br><br>
+            <h2 class="info-text">Save to Storage</h2>
+            <p class="info-text">Choosing this option will save the archive to your <code>Download/</code> directory as <code>com.mojang.zip</code> file. Only use this option if you want to keep a backup of the build.</p>
+            <br><br>
+            <a class="aheader" href="#third-party-apps"><h2 id="third-party-apps" class="info-text">Third Party Apps</h2></a>
+            <p class="info-text">Third-party apps for Minecraft also utilize Minecraft's file structure because they use Minecraft itself but with modified game behavior based on how the developer intended the app to be used.</p>
+            <p class="info-text">For a detailed procedure of how to make use of imports to Third Party Apps, please refer to the <a href="guide.html#third-party-apps-minecraft">Third Party Apps</a> guide.</p>
+            <p class="info-text disclaimer-text">DISCLAIMER: Use of "Clone Minecraft" or "Fake Minecraft" is not tolerated by any means. Using cracked Minecraft is part of many players' journeys but the risk of using it is the responsibility of the player.</p>
+            <br><br>
+            <h2 class="info-text">Need to learn more?</h2>
+            <p class="info-text">For more information about the app's functionality and its relation to Minecraft, refer to the <b>QIB Guide</b> section.</p>
+            <br><br>
+        </div>
+    </main>
+
+    <footer>
+        <h3>Quilantia Import Builder | Made by EditorOne XI</h3>
+        <p class="note">MINECRAFT IS A TRADEMARK OF MOJANG STUDIOS AND MICROSOFT CORPORATION.</p>
+        <p class="note">NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.</p>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>
