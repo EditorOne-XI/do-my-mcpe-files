@@ -1,0 +1,17 @@
+# Respect ignores
+
+# Node package manager
+node_modules/
+package-lock.json
+
+# Generated files/directories
+__setbuild__/
+__uploads__/
+log.txt
+rish
+rish_shizuku.dex
+
+# tests
+packagePaths.txt
+__imports/
+__mcpedirs/
