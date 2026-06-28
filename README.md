@@ -1,6 +1,6 @@
 # Quilantia Import Builder
 
-A local web app that assembles imports for **Minecraft Bedrock on Android** in a single instance.
+A local web app that assembles organized imports for **Minecraft: Bedrock Edition** directly into the game.
 > Call it Q Import Builder if having difficulties pronouncing /kɪˈlæn.ʃə/ (Quilantia).
 
 <img src="app/assets/app_preview1.png" alt="preview1" width="32%" align="center"> <img src="app/assets/app_preview2.png" alt="preview2" width="32%" align="center">
@@ -131,7 +131,7 @@ bash startapp.sh
 ## Acknowledgments
 
 - [Termux](https://github.com/termux/termux-app)
-- [Shizuku](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api)
+- [Shizuku](https://shizuku.rikka.app/)
 - [NodeJS](https://nodejs.org)
 - [Express.js](https://expressjs.com)
 - [AdmZip](https://www.npmjs.com/package/adm-zip)
